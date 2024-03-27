@@ -1,0 +1,63 @@
+
+/* change bg */
+body {
+    background-color: aqua;
+    margin: 0;
+    
+}
+/* change nav bar stlye */
+ul {
+    left: 17%;
+    list-style-type: none;
+    background-color: #383838;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    
+  }
+  
+  li {
+    float: left;
+
+  }
+  
+  li a {
+    display: flex;
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    text-decoration: none;
+  }
+  li :active{
+    background-color: #06a8de;
+    color: #ffffff;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  
+  li a:hover:not(.active) {
+    background-color: #06a8de;
+    color: #ffffff;
+  }
+  .active {
+    background-color: #06a8de;
+  }
+.container{
+    top: 0%;
+    left: 0%;
+    padding: 10px;
+    background-color: #ffffff;
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 0 10px 0 #000;
+}
+
+.content{
+    
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+
+}
