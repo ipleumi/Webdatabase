@@ -1,16 +1,17 @@
 <?php
 
-$host = "localhost"; /* Host name */
-$user = "root"; /* User */
-$password = "12345678"; /* Password */
-$dbname = "test"; /* Database name */
+$servername = 'localhost';
+$username = 'root';
+$password = '12345678';
+$dbname = 'dbhr';
 
-$con = mysqli_connect($host, $user, $password,$dbname);
-// Check connection
-// if (!$con) {
-//   die("Connection failed: " . mysqli_connect_error());
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// if (!$conn) {
+// 	die("Connection : failed (เชื่อมต่อฐานข้อมูล ไม่ สำเร็จ)" . mysqli_connect_error());
+// } else {
+// 	echo "Connection : OK (เชื่อมต่อฐานข้อมูลสำเร็จ)";
 // }
 
-
+// mysqli_close($conn); // ปิดฐานข้อมูล
 ?>
-

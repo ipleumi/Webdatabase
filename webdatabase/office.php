@@ -18,8 +18,8 @@
         <div>
             <ul>
                 <li><a  href="home.php">หน้าหลัก</a></li>
-                <li><a class="active" href="employee.php">พนักงาน</a></li>
-                <li><a  href="office.php">สำนักงาน</a></li>
+                <li><a href="employee.php">พนักงาน</a></li>
+                <li><a class="active" href="office.php">สำนักงาน</a></li>
                 <li style="float:right;"><a href="login.php?logout='1'" style="color: red; ">ออกจากระบบ</a></li>
                 
             </ul>
