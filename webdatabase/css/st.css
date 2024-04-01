@@ -92,7 +92,7 @@ tr:nth-child(even) {
   .ta{
     
     background-color: blue;
-    width: 800px;
+    
     
   }
   .edit{
@@ -113,5 +113,5 @@ tr:nth-child(even) {
     color:white;
   }
   .form{
-    display: inline-block; width: 45%; content: 'center';
+   display:inline-block   ;  width: 45% ; content: 'center';
    }

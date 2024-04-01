@@ -41,31 +41,31 @@
     </div>
 
     <div> 
-    <label for="StartDate" >StartDate:</label>
-    <input type="text" id="StartDate" name="StartDate" value="" >
-    <label for="Salary" >Salary:</label>
-    <input type="text" id="Salary" name="Salary" value="" >
+    <label for="Start_date" >StartDate:</label>
+    <input type="date" id="Start_date" name="Start_date" value="" >
+    <label for="Sal" >Salary:</label>
+    <input type="text" id="Sal" name="Sal" value="" >
     </div>
-
+    <br>
     <div> 
-    <label for="EmployeeStatus" >EmployeeStatus:</label>
-    <input type="text" id="EmployeeStatus" name="EmployeeStatus" value="" >
+    <label for="Emp_status" >EmployeeStatus:</label>
+    <input type="text" id="Emp_status" name="Emp_status" value="" >
     <label for="Email" >Email:</label>
     <input type="text" id="Email" name="Email" value="" >
     </div>
 
     <div> 
-    <label for="Address" >Address:</label>
-    <input type="text" id="Address" name="Address" value="" >
+    <label for="Adds" >Address:</label>
+    <input type="text" id="Adds" name="Adds" value="" >
     <label for="Tel" >Telephone:</label>
     <input type="text" id="Tel" name="Tel" value="" >
     </div>
-
+    <br>
     <div> 
-    <label for="His_ID" >History:</label>
+    <label for="His_ID" >HistoryID:</label>
     <input type="text" id="His_ID" name="His_ID" value="" >
     <label for="Exps" >วันที่ออกจากงาน:</label>
-    <input type="text" id="Exps" name="Exps" value="" >
+    <input type="date" id="Exps" name="Exps" value="" >
     </div>
 
     <div> 
@@ -74,12 +74,21 @@
     <label for="Dept" >แผนกเก่า:</label>
     <input type="text" id="Dept" name="Dept" value="" >
     </div>
-
+    <br>
     <div> 
     <label for="Pos" >ตำแหน่งเก่า:</label>
     <input type="text" id="Pos" name="Pos" value="" >
+    <label for="Dept_ID" >DepartmentID:</label>
+    <input type="text" id="Dept_ID" name="Dept_ID" value="" >
     </div>
 
+    <div>
+    <label for="Pos_ID" >PositionID:</label>
+    <input type="text" id="Pos_ID" name="Pos_ID" value="" >
+    <label for="Off_ID" >OfficeID:</label>
+    <input type="text" id="Off_ID" name="Off_ID" value="" >
+    </div>
+    <br>
     <div style="display: inline-block; width: 45%; margin-left: 10px;">
         <input type="submit" value="Submit" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;"> 
     </div>

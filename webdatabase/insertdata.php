@@ -21,19 +21,21 @@ $Pos = $_POST['Pos'];
 
 
 
-$sql = "INSERT INTO `emp_his` (`His_ID`, `Exps`, `Reason`, `Dept`, `Pos`) VALUES ('$His_ID', '$Exps', '$Reason', '$Dept', '$Pos');
-        INSERT INTO `employee` (`Emp_ID`, `Name`, `Start_date`, `Sal`, `Emp_status`, `Email`, `Adds`, `His_ID`, `Pos_ID`, `Dept_ID`, `Off_ID`) VALUES ('$Emp_ID', '$Name', '$Start_date', '$Sal', '$Emp_status', '$Email', '$Adds', '$His_ID', '$Pos_ID', '$Dept_ID', '$Off_ID');
-        INSERT INTO `emp_tel` (`Emp_ID`, `Tel`) VALUES ('$Emp_ID', '$Tel');
-        
-";
+$sql1 = "INSERT INTO `emp_his` (`His_ID`, `Exps`, `Reason`, `Dept`, `Pos`) VALUES ('$His_ID', '$Exps', '$Reason', '$Dept', '$Pos');";
+$sql2 = "INSERT INTO `employee` (`Emp_ID`, `Name`, `Start_date`, `Sal`, `Emp_status`, `Email`, `Adds`, `His_ID`, `Pos_ID`, `Dept_ID`, `Off_ID`) VALUES ('$Emp_ID', '$Name', '$Start_date', '$Sal', '$Emp_status', '$Email', '$Adds', '$His_ID', '$Pos_ID', '$Dept_ID', '$Off_ID');";
+$sql3 = "INSERT INTO `emp_tel` (`Emp_ID`, `Tel`) VALUES ('$Emp_ID', '$Tel');";
 
-$objQuery = mysqli_query($conn, $sql);
 
-if ($objQuery) {
+$objQuery1 = mysqli_query($conn, $sql1);
+$objQuery2 = mysqli_query($conn, $sql2);
+$objQuery3 = mysqli_query($conn, $sql3);
+
+
+if ($objQuery1 && $objQuery2 && $objQuery3) {
     echo "<script>alert('เพิ่มข้อมูลเรียบร้อย');</script>";
     echo "<script>window.location='employee.php';</script>";
 } else {
-    echo "Error : " . $sql . "<br>" . mysqli_error($conn);
+    echo "Error : " . $sql1 . "<br>" . mysqli_error($conn);
     echo "<script>alert('ไม่สามารถเพิ่มข้อมูลได้');</script>";
 }
 

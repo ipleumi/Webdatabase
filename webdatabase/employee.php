@@ -31,35 +31,35 @@
 
     
     <center>
-      <div  class="content" style="width: 1500px;">
+      <div  class="content">
       
       <?php
       require('connect.php');
-      $sql = 'SELECT * FROM `employee` INNER JOIN `emp_tel` ON employee.Emp_ID = emp_tel.Emp_ID';
+      $sql = 'SELECT * FROM `employee` INNER JOIN `emp_tel` ON employee.Emp_ID = emp_tel.Emp_ID INNER JOIN `emp_his` ON employee.His_ID = emp_his.His_ID';
 
       $objQuery = mysqli_query($conn, $sql) or die("Error Query [" . $sql . "]");
       ?>
       <table border="1">
         <tr>
           <th width="100">
-            <div align="center">Emp_ID</div>
+            <div align="center">EmployeeID</div>
           </th>
           <th width="auto">
             <div align="center">Name</div>
           </th>
-          <th width="100">
-            <div align="center">Start_date</div>
+          <th width="auto">
+            <div align="center">Startdate</div>
           </th>
           <th width="100">
             <div align="center">Sal</div>
           </th>
           <th width="100">
-            <div align="center">Emp_status</div>
+            <div align="center">Employeestatus</div>
           </th>
           <th width="auto">
             <div align="center">Email</div>
           </th>
-          <th width="auto">
+          <th width="110">
             <div align="center">Adds</div>
           </th>
           <th width="100">
@@ -85,7 +85,7 @@
             <td><?php echo $objResult["Email"]; ?></td>
             <td><?php echo $objResult["Adds"]; ?></td>
             <td><?php echo $objResult["Tel"]; ?></td>
-            <td align="center"><a class="del" onclick="Del(this.href);return false;" href="deletedata.php?Emp_ID=<?php echo $objResult["Emp_ID"]; ?>">ลบข้อมูล</a></td>
+            <td align="center"><a class="del" onclick="Del(this.href);return false;" href="deletedata.php?Emp_ID=<?php echo $objResult["Emp_ID"];?>">ลบข้อมูล</a></td>
             <td align="center"><a class="edit" href="editdata.php?Emp_ID=<?php echo $objResult["Emp_ID"]; ?>">แก้ไขข้อมูล</a></td>
           </tr>
         <?php

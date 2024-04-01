@@ -1,15 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['username'])) {
-    $_SESSION['msg'] = "You must log in first";
-    header('location: login.php');
-}
-if (isset($_GET['logout'])) {
-    session_destroy();
-    unset($_SESSION['username']);
-    header("location: login.php");
-}
-?>
 
 <!DOCTYPE html>
 <html>
@@ -32,7 +20,7 @@ if (isset($_GET['logout'])) {
                 <li><a href="home.php">หน้าหลัก</a></li>
                 <li><a href="employee.php">พนักงาน</a></li>
                 <li><a href="office.php">สำนักงาน</a></li>
-                <li><a  href="addemp.php">เพิ่มข้อมูลพนักงาน</a></li>
+                <li><a href="addemp.php">เพิ่มข้อมูลพนักงาน</a></li>
                 <li><a class="active"href="addoffice.php">เพิ่มข้อมูลสำนักงาน</a></li>
                 <li style="float:right;"><a href="login.php?logout='1'" style="color: white; ">ออกจากระบบ</a></li>
                 
@@ -41,27 +29,24 @@ if (isset($_GET['logout'])) {
     </div> 
 <div class="addinfo">
 <center>  
-<form action="insertdata.php" method="post" style="margin-top: 20px;">
+<form action="insertoffice.php" method="post" style="margin-top: 20px;">
 <div class ="form" >  
     <div> 
-    <label for="fname" >EmployeeID:</label>
-    <input type="text" id="fname" name="fname" value="" >
-    <label for="lname" >Name:</label>
-    <input type="text" id="lname" name="Last name" value="" >
+    
     </div>
 
     <div> 
-    <label for="fname" >EmployeeID:</label>
-    <input type="text" id="fname" name="fname" value="" >
-    <label for="lname" >Name:</label>
-    <input type="text" id="lname" name="Last name" value="" >
+    <label for="Off_ID" >OfficeID:</label>
+    <input type="text" id="Off_ID" name="Off_ID" value="" >
+    <label for="Mng" >ManagerName:</label>
+    <input type="text" id="Mng" name="Mng" value="" >
     </div>
 
     <div> 
-    <label for="fname" >EmployeeID:</label>
-    <input type="text" id="fname" name="fname" value="" >
-    <label for="lname" >Name:</label>
-    <input type="text" id="lname" name="Last name" value="" >
+    <label for="Adds" >Address:</label>
+    <input type="text" id="Adds" name="Adds" value="" >
+    <label for="Tel" >OfficeTel:</label>
+    <input type="text" id="Tel" name="Tel" value="" >
     </div>
 
     <div style="display: inline-block; width: 45%; margin-left: 10px;">

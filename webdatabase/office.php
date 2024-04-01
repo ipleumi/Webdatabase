@@ -30,7 +30,7 @@
 
     
     <center>
-    <div  class="content" style="width: 1800px;">
+    <div  class="content">
       
       <?php
       require('connect.php');
