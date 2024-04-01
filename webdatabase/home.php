@@ -34,7 +34,7 @@ if (isset($_GET['logout'])) {
                 <li><a href="office.php">สำนักงาน</a></li>
                 <li><a href="addemp.php">เพิ่มข้อมูลพนักงาน</a></li>
                 <li><a href="addoffice.php">เพิ่มข้อมูลสำนักงาน</a></li>
-                <li style="float:right;"><a href="login.php?logout='1'" style="color: red; ">ออกจากระบบ</a></li>
+                <li style="float:right;"><a href="login.php?logout='1'" style="color: white; ">ออกจากระบบ</a></li>
                 
             </ul>
         </div>
@@ -72,7 +72,7 @@ if (isset($_GET['logout'])) {
 <div class="allinfo" >
   <?php
   require('connect.php');
-  $sql = 'SELECT count(*) FROM `employees` WHERE 1';
+  $sql = 'SELECT COUNT(*) FROM `employee`';
 
   $objQuery = mysqli_query($conn, $sql) or die("Error Query [" . $sql . "]");
   $objResult = mysqli_fetch_array($objQuery);
@@ -85,7 +85,7 @@ if (isset($_GET['logout'])) {
 
   <?php
   require('connect.php');
-  $sql = 'SELECT count(*) FROM `employees` WHERE 1';
+  $sql = 'SELECT COUNT(*) FROM `office`';
 
   $objQuery = mysqli_query($conn, $sql) or die("Error Query [" . $sql . "]");
   $objResult = mysqli_fetch_array($objQuery);

@@ -1,15 +1,4 @@
-<?php
-session_start();
-if (!isset($_SESSION['username'])) {
-    $_SESSION['msg'] = "You must log in first";
-    header('location: login.php');
-}
-if (isset($_GET['logout'])) {
-    session_destroy();
-    unset($_SESSION['username']);
-    header("location: login.php");
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +23,7 @@ if (isset($_GET['logout'])) {
                 <li><a  href="office.php">สำนักงาน</a></li>
                 <li><a href="addemp.php">เพิ่มข้อมูลพนักงาน</a></li>
                 <li><a href="addoffice.php">เพิ่มข้อมูลสำนักงาน</a></li>
-                <li style="float:right;"><a href="login.php?logout='1'" style="color: red; ">ออกจากระบบ</a></li>
+                <li style="float:right;"><a href="login.php?logout='1'" style="color: white; ">ออกจากระบบ</a></li>
                 
             </ul>
         </div>
@@ -42,33 +31,45 @@ if (isset($_GET['logout'])) {
 
     
     <center>
-        <div  class="content" style="width: 1200px;">
+      <div  class="content" style="width: 1500px;">
       
       <?php
       require('connect.php');
-      $sql = 'SELECT * FROM `employees`';
+      $sql = 'SELECT * FROM `employee` INNER JOIN `emp_tel` ON employee.Emp_ID = emp_tel.Emp_ID';
 
       $objQuery = mysqli_query($conn, $sql) or die("Error Query [" . $sql . "]");
       ?>
       <table border="1">
         <tr>
-          <th width="50">
-            <div align="center">No</div>
+          <th width="100">
+            <div align="center">Emp_ID</div>
+          </th>
+          <th width="auto">
+            <div align="center">Name</div>
           </th>
           <th width="100">
-            <div align="center">EmployeeID</div>
+            <div align="center">Start_date</div>
           </th>
           <th width="100">
-            <div align="center">FirstName</div>
+            <div align="center">Sal</div>
           </th>
           <th width="100">
-            <div align="center">SalaryID</div>
+            <div align="center">Emp_status</div>
+          </th>
+          <th width="auto">
+            <div align="center">Email</div>
+          </th>
+          <th width="auto">
+            <div align="center">Adds</div>
           </th>
           <th width="100">
-            <div align="center">DepartmentID</div>
+            <div align="center">Telephone</div>
           </th>
           <th width="100">
             <div align="center">Delete</div>
+          </th>
+          <th wdth="100">
+            <div align="center">Edit</div>
           </th>
         </tr>
         <?php
@@ -76,14 +77,16 @@ if (isset($_GET['logout'])) {
         while ($objResult = mysqli_fetch_array($objQuery)) {
         ?>
           <tr>
-            <td>
-              <div align="center"><?php echo $i; ?></div>
-            </td>
-            <td><?php echo $objResult["EmployeeID"]; ?></td>
-            <td><?php echo $objResult["FirstName"]; ?></td>
-            <td><?php echo $objResult["SalaryID"]; ?></td>
-            <td><?php echo $objResult["DepartmentID"]; ?></td>
-            <td align="center"><a class="del" href="deletedata.php?EmployeeID=<?php echo $objResult["EmployeeID"]; ?>">ลบข้อมูล</a></td>
+            <td><?php echo $objResult["Emp_ID"]; ?></td>
+            <td><?php echo $objResult["Name"]; ?></td>
+            <td><?php echo $objResult["Start_date"]; ?></td>
+            <td><?php echo $objResult["Sal"]; ?></td>
+            <td><?php echo $objResult["Emp_status"]; ?></td>
+            <td><?php echo $objResult["Email"]; ?></td>
+            <td><?php echo $objResult["Adds"]; ?></td>
+            <td><?php echo $objResult["Tel"]; ?></td>
+            <td align="center"><a class="del" onclick="Del(this.href);return false;" href="deletedata.php?Emp_ID=<?php echo $objResult["Emp_ID"]; ?>">ลบข้อมูล</a></td>
+            <td align="center"><a class="edit" href="editdata.php?Emp_ID=<?php echo $objResult["Emp_ID"]; ?>">แก้ไขข้อมูล</a></td>
           </tr>
         <?php
           $i++;
@@ -96,7 +99,14 @@ if (isset($_GET['logout'])) {
 
     </div>
     </center>
-  
+<script language="JavaScript">
+    function Del(mypage){
+    var agree =confirm("คุณต้องการลบข้อมูลหรือไม่");
+    if(agree){
+        window.location=mypage;
+    }
+}
+</script>
 
     
 </body>

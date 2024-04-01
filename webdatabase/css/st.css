@@ -5,7 +5,7 @@
 
 body{
     font-family: Verdana, sans-serif;
-    background-color: rgb(144, 237, 237);
+    background-color: rgb(240, 240, 240);
     margin: 0;
   }
   
@@ -61,32 +61,45 @@ body{
     border-spacing: 1px;
   }
 
-.content{
-  background-color: violet;
+
+
+  table {
+    width: 50%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    background-color: #fff;
 }
 
-  table, td, th {
-    border: 1px solid black;
-  }
-  
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    background-color: white;
-  }
-  
-  td {
-    height: 50px;
-    vertical-align: bottom;
-  }
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;  /*เส้นตาราง*/
+}
+td{
+  width: auto;
+}
+
+th {
+    background-color: #00CCFF;  /*หัวตาราง */
+    color: #fff;
+    font-size: 13.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #d3d3d3;
+}
+ 
   .ta{
     
     background-color: blue;
-    width: 1000px;
+    width: 800px;
     
   }
+  .edit{
+    background-color: #10c8444d;
+  }
   .del{
-    background-color: red;
+    background-color: #105cc894;
   }
   td a{
     display: block;
@@ -96,6 +109,9 @@ body{
     text-decoration: none;
   }
   td a:hover:not(.active) {
-    background-color: #06a8de;
-    color:black;
+    background-color: #920202da;
+    color:white;
   }
+  .form{
+    display: inline-block; width: 45%; content: 'center';
+   }

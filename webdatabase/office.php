@@ -1,15 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['username'])) {
-    $_SESSION['msg'] = "You must log in first";
-    header('location: login.php');
-}
-if (isset($_GET['logout'])) {
-    session_destroy();
-    unset($_SESSION['username']);
-    header("location: login.php");
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,52 +22,57 @@ if (isset($_GET['logout'])) {
                 <li><a class="active" href="office.php">สำนักงาน</a></li>
                 <li><a href="addemp.php">เพิ่มข้อมูลพนักงาน</a></li>
                 <li><a href="addoffice.php">เพิ่มข้อมูลสำนักงาน</a></li>
-                <li style="float:right;"><a href="login.php?logout='1'" style="color: red; ">ออกจากระบบ</a></li>
+                <li style="float:right;"><a href="login.php?logout='1'" style="color: white; ">ออกจากระบบ</a></li>
                 
             </ul>
         </div>
     </div>    
 
-    <section class="con" style="text-align:center" >
+    
     <center>
-        <div  class="content" style="width: 1200px;">
+    <div  class="content" style="width: 1800px;">
       
       <?php
       require('connect.php');
-      $sql = 'SELECT * FROM `employees`';
+      $sql = 'SELECT * FROM `office` INNER JOIN `off_tel` ON office.Off_ID = off_tel.Off_ID';
 
       $objQuery = mysqli_query($conn, $sql) or die("Error Query [" . $sql . "]");
       ?>
       <table border="1">
         <tr>
-          <th width="50">
-            <div align="center">No</div>
+          
+          <th width="100">
+            <div align="center">Off_ID</div>
           </th>
           <th width="100">
-            <div align="center">EmployeeID</div>
+            <div align="center">Mng</div>
+          </th>
+          <th width="auto">
+            <div align="center">Adds</div>
+          </th>
+          <th width="auto">
+            <div align="center">OfficeTelephone</div>
           </th>
           <th width="100">
-            <div align="center">FirstName</div>
+            <div align="center">Delete</div>
           </th>
-          <th width="100">
-            <div align="center">SalaryID</div>
+          <th wdth="100">
+            <div align="center">Edit</div>
           </th>
-          <th width="100">
-            <div align="center">DepartmentID</div>
-          </th>
+          
         </tr>
         <?php
         $i = 1;
         while ($objResult = mysqli_fetch_array($objQuery)) {
         ?>
           <tr>
-            <td>
-              <div align="center"><?php echo $i; ?></div>
-            </td>
-            <td><?php echo $objResult["EmployeeID"]; ?></td>
-            <td><?php echo $objResult["FirstName"]; ?></td>
-            <td><?php echo $objResult["SalaryID"]; ?></td>
-            <td><?php echo $objResult["DepartmentID"]; ?></td>
+            
+            <td><?php echo $objResult["Off_ID"]; ?></td>
+            <td><?php echo $objResult["Mng"]; ?></td>
+            <td><?php echo $objResult["Adds"]; ?></td>
+            <td><?php echo $objResult["Tel"]; ?></td>
+            <td align="center"><a class="del" onclick="Del(this.href);return false;" href="deleteoffice.php?Off_ID=<?php echo $objResult["Off_ID"]; ?>">ลบข้อมูล</a></td>
+            <td align="center"><a class="edit" href="editoffice.php?Off_ID=<?php echo $objResult["Off_ID"]; ?>">แก้ไขข้อมูล</a></td>
           </tr>
         <?php
           $i++;
@@ -92,7 +85,7 @@ if (isset($_GET['logout'])) {
 
     </div>
     </center>
-  </section>
+ 
 
     
 </body>

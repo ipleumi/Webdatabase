@@ -1,17 +1,17 @@
 <?php
 require('connect.php');
 
-$EmployeeID   = $_REQUEST['EmployeeID'];
-$FirstName		  = $_REQUEST['FirstName'];
-$LastName		  = $_REQUEST['LastName'];
-$PositionID		  = $_REQUEST['PositionID'];
-$SalaryID	  = $_REQUEST['SalaryID'];
-$DepartmentID	  = $_REQUEST['DepartmentID'];
-$OfficeID		  = $_REQUEST['OfficeID'];
-$ContactInfo = $_REQUEST['ContactInfo'];
-$StartDate = $_REQUEST['StartDate'];
-$EmploymentStatus = $_REQUEST['EmploymentStatus'];
-
+$EmployeeID   = $_POST['EmployeeID'];
+$FirstName		  = $_POST['FirstName'];
+$LastName		  = $_POST['LastName'];
+$PositionID		  = $_POST['PositionID'];
+$SalaryID	  = $_POST['SalaryID'];
+$DepartmentID	  = $_POST['DepartmentID'];
+$OfficeID		  = $_POST['OfficeID'];
+$ContactInfo = $_POST['ContactInfo'];
+$StartDate = $_POST['StartDate'];
+$EmploymentStatus = $_POST['EmploymentStatus'];
+$Telephone = $_POST['Telephone'];
 
 $sql = "
 	INSERT INTO `employees` 
@@ -21,9 +21,11 @@ $sql = "
 $objQuery = mysqli_query($conn, $sql);
 
 if ($objQuery) {
-	echo "เพิ่มข้อมูลเรียบร้อยแล้ว";
+    echo "<script>alert('เพิ่มข้อมูลเรียบร้อย');</script>";
+    echo "<script>window.location='addoffice.php';</script>";
 } else {
-	echo "Error : เกิดข้อผิดพลาด";
+    echo "Error : " . $sql . "<br>" . mysqli_error($conn);
+    echo "<script>alert('ไม่สามารถเพิ่มข้อมูลได้');</script>";
 }
 
 mysqli_close($conn); // ปิดฐานข้อมูล

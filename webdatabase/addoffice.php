@@ -34,13 +34,46 @@ if (isset($_GET['logout'])) {
                 <li><a href="office.php">สำนักงาน</a></li>
                 <li><a  href="addemp.php">เพิ่มข้อมูลพนักงาน</a></li>
                 <li><a class="active"href="addoffice.php">เพิ่มข้อมูลสำนักงาน</a></li>
-                <li style="float:right;"><a href="login.php?logout='1'" style="color: red; ">ออกจากระบบ</a></li>
+                <li style="float:right;"><a href="login.php?logout='1'" style="color: white; ">ออกจากระบบ</a></li>
                 
             </ul>
         </div>
     </div> 
+<div class="addinfo">
+<center>  
+<form action="insertdata.php" method="post" style="margin-top: 20px;">
+<div class ="form" >  
+    <div> 
+    <label for="fname" >EmployeeID:</label>
+    <input type="text" id="fname" name="fname" value="" >
+    <label for="lname" >Name:</label>
+    <input type="text" id="lname" name="Last name" value="" >
+    </div>
 
+    <div> 
+    <label for="fname" >EmployeeID:</label>
+    <input type="text" id="fname" name="fname" value="" >
+    <label for="lname" >Name:</label>
+    <input type="text" id="lname" name="Last name" value="" >
+    </div>
 
+    <div> 
+    <label for="fname" >EmployeeID:</label>
+    <input type="text" id="fname" name="fname" value="" >
+    <label for="lname" >Name:</label>
+    <input type="text" id="lname" name="Last name" value="" >
+    </div>
+
+    <div style="display: inline-block; width: 45%; margin-left: 10px;">
+        <input type="submit" value="Submit" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;"> 
+    </div>
+      
+
+</form>
+
+</center>
+
+</div>
 
 
 
