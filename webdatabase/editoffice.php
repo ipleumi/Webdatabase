@@ -49,6 +49,7 @@ $row = mysqli_fetch_array($result);
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/test.css">
 <link rel="stylesheet" href="css/st.css">
+<title>SITC HR THAI/office</title>
 </head>
 <body>
 <div class="navbar">
@@ -61,8 +62,8 @@ $row = mysqli_fetch_array($result);
     <div>
         <ul>
             <li><a href="home.php">หน้าหลัก</a></li>
-            <li><a class="active" href="employee.php">พนักงาน</a></li>
-            <li><a href="office.php">สำนักงาน</a></li>
+            <li><a href="employee.php">พนักงาน</a></li>
+            <li><a class="active" href="office.php">สำนักงาน</a></li>
             <li><a href="addemp.php">เพิ่มข้อมูลพนักงาน</a></li>
             <li><a href="addoffice.php">เพิ่มข้อมูลสำนักงาน</a></li>
             <li style="float:right;"><a href="login.php?logout='1'" style="color: red;">ออกจากระบบ</a></li>

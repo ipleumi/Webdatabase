@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/test.css">
 <link rel="stylesheet" href="css/st.css">
+<title>SITC HR THAI/addemployee</title>
 </head>
 <body>
 <div class="navbar">
