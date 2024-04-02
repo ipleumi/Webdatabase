@@ -79,8 +79,6 @@ if (isset($_GET['logout'])) {
 
   echo "<div class='emp'style=' width: 450px; font-size: 23px;  margin: 0 auto; padding: 10px; border-radius: 10px; margin-top: 20px;'>จำนวนพนักงานทั้งหมด : ".$objResult[0]." คน</div>";
 
-
-  mysqli_close($conn); // ปิดฐานข้อมูล
   ?>
 
   <?php
@@ -90,16 +88,104 @@ if (isset($_GET['logout'])) {
   $objQuery = mysqli_query($conn, $sql) or die("Error Query [" . $sql . "]");
   $objResult = mysqli_fetch_array($objQuery);
 
-  echo "<div class='emp'style=' width: 450px; font-size: 23px;  margin: 0 auto; padding: 10px; border-radius: 10px; margin-top: 20px;'>จำนวนสำนักงานทั้งหมด : ".$objResult[0]." ที่</div>";
-
-
-  mysqli_close($conn); // ปิดฐานข้อมูล
-  
+  echo "<div class='off' style=' width: 450px; font-size: 23px;  margin: 0 auto; padding: 10px; border-radius: 10px; margin-top: 20px;'>จำนวนสำนักงานทั้งหมด : ".$objResult[0]." สำนักงาน</div>";
   ?>
+</div>
+
+<div class="train">
+
+<div class="headtrain" style=" width: 50%;
+    background-color: #00CCFF;
+    font-size: 23px;  
+    margin: 0 auto; 
+    padding: 10px; 
+    color: white; 
+    margin-top: 20px;">Training 2024</div>
+<table>
+<tr>
+<th>TrainingID</th>
+<th>Dates</th>
+<th>TrainingName</th>
+<th>Detail</th>
+<th>Location</th>
+<th>Lecturer</th>
+<th>Office</th>
+</tr>
+
+<?php
+require('connect.php');
+
+$sql = "SELECT *
+        FROM `training` 
+        LEFT JOIN `office` ON training.Off_ID = Office.Off_ID
+        WHERE `training`.`Dates` LIKE '2024%' ;";
+$objQuery = mysqli_query($conn, $sql) or die("Error Query [" . $sql . "]");
+$objResult = mysqli_fetch_array($objQuery);
+
+?>
+
+<tr>
+
+<td><?php echo $objResult['Trn_ID']; ?></td>
+<td><?php echo $objResult['Dates']; ?></td>
+<td><?php echo $objResult['Trn_name']; ?></td>
+<td><?php echo $objResult['Detail']; ?></td>
+<td><?php echo $objResult['Loc']; ?></td>
+<td><?php echo $objResult['Lecturer']; ?></td>
+<td><?php echo $objResult['Adds']; ?></td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="department">
+<div class="headdepartment" style=" width: 50%;
+    background-color: #00CCFF;
+    font-size: 23px;  
+    margin: 0 auto; 
+    padding: 10px; 
+    color: white; 
+    margin-top: 20px;">Department In Thai</div>
+<table>
+<tr>
+<th>DeptID</th>
+<th>Departmentname</th>
+<th>Detail</th>
+<th>Manager</th>
+<th>Telephone</th>
+<th>Office</th>
+</tr>
+
+<?php
+require('connect.php');
+
+$sql = "SELECT *
+        FROM `department` 
+        LEFT JOIN `dept_tel` ON department.Dept_ID = department.Dept_ID
+        LEFT JOIN `office` ON department.Off_ID = office.Off_ID;";
+$objQuery = mysqli_query($conn, $sql) or die("Error Query [" . $sql . "]");
+$objResult = mysqli_fetch_array($objQuery);
+
+?>
+
+<tr>
+<td><?php echo $objResult['Dept_ID']; ?></td>
+<td><?php echo $objResult['Dept_Name']; ?></td>
+<td><?php echo $objResult['Detail']; ?></td>
+<td><?php echo $objResult['Mng']; ?></td>
+<td><?php echo $objResult['Tel']; ?></td>
+<td><?php echo $objResult['Adds']; ?></td>
+</tr>
+
+</table>
+
 </div>
 </center>
 
-
+<?php
+mysqli_close($conn); // ปิดฐานข้อมูล
+?>
 
 <script>
 let slideIndex = 0;
@@ -122,6 +208,5 @@ function showSlides() {
   setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
 </script>
-
 </body>
 </html> 
