@@ -1,3 +1,28 @@
+<?php
+  require('connect.php');
+  $sql = 'SELECT * FROM `office` 
+  INNER JOIN `off_tel` ON office.Off_ID = off_tel.Off_ID';
+
+  $objQuery = mysqli_query($conn, $sql) or die("Error Query [" . $sql . "]");
+
+
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
+    if(isset($_POST['search']) && !empty($_POST['search'])){
+      $search = $_POST['search'];
+      $sql = "SELECT * 
+              FROM `office` 
+              LEFT JOIN `off_tel` ON office.Off_ID = off_tel.Off_ID
+              WHERE `office`.`Off_ID` = '$search' 
+              OR `office`.`Mng` LIKE '%$search%'
+              OR `office`.`Adds` LIKE '%$search%'";
+      $objQuery = mysqli_query($conn, $sql) or die("Error Query [" . $sql . "]");
+    }else{
+      $sql = 'SELECT * FROM `office` 
+              INNER JOIN `off_tel` ON office.Off_ID = off_tel.Off_ID';
+      $objQuery = mysqli_query($conn, $sql) or die("Error Query [" . $sql . "]");
+    }
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,14 +55,19 @@
 
     
     <center>
-    <div  class="content">
-      
-      <?php
-      require('connect.php');
-      $sql = 'SELECT * FROM `office` INNER JOIN `off_tel` ON office.Off_ID = off_tel.Off_ID';
 
-      $objQuery = mysqli_query($conn, $sql) or die("Error Query [" . $sql . "]");
-      ?>
+    <div  class="content">
+
+    <div class="search">
+      <h2>ค้นหาข้อมูลสำนักงาน</h2>
+      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+          <input type="text" name="search" placeholder="Search..">
+          <button type="submit">ค้นหา</button>
+      </form>
+      </div>
+
+      <br>
+      
       <table border="1">
         <tr>
           
@@ -62,7 +92,6 @@
           
         </tr>
         <?php
-        $i = 1;
         while ($objResult = mysqli_fetch_array($objQuery)) {
         ?>
           <tr>
@@ -75,7 +104,6 @@
             <td align="center"><a class="edit" href="editoffice.php?Off_ID=<?php echo $objResult["Off_ID"]; ?>">แก้ไขข้อมูล</a></td>
           </tr>
         <?php
-          $i++;
         }
         ?>
       </table>

@@ -158,3 +158,37 @@ tr:nth-child(even) {
     background-color: #da190b;
 }
 
+.search button {
+  background-color: #00CCFF;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.search button:hover {
+  background-color: #01b1de;
+}
+.search input[type="text"] {
+  width: 50%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+.search {
+  padding: 20px;
+}
+.search label {
+  display: block;
+  margin-bottom: 10px;
+}
+
